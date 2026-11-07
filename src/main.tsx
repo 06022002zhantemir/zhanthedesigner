@@ -2,11 +2,11 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { QueryClient } from "@tanstack/react-query";
 import { RouterProvider, createMemoryHistory, createRouter } from "@tanstack/react-router";
-import { routeTree } from "../src/routeTree.gen";
+import { routeTree } from "./routeTree.gen";
 import { localePath, type Locale } from "@/lib/i18n";
 
-// Memory history: the page is opened from file://, and the site already uses
-// the URL hash for sections and case links.
+// Memory history: works on any host or sub-path and from file://, and the site
+// already uses the URL hash for sections and case links.
 let start = "/";
 try {
   const saved = localStorage.getItem("zhan_lang") as Locale | null;

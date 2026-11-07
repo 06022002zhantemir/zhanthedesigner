@@ -1,24 +1,38 @@
-# Zhan Motion Atlas
+# Zhan — motion design portfolio
 
-Implement exactly the screenshot and nothing else
+Portfolio site for Zhan: graphic and motion design, ad videos, explainers and AI video. Available in Russian, Kazakh and English.
 
-This project was built with [Lovable](https://lovable.dev).
+Built with React, TanStack Router, Tailwind CSS and Vite. The site is fully static: no server or backend.
 
-## Build with Lovable
+## Run locally
 
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/9b8eabc0-1f22-483f-a7d1-573d645b65f7).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
-
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+You need [Node.js](https://nodejs.org) (LTS).
 
 ```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
+npm install
 npm run dev
 ```
+
+Open the URL it prints (usually http://localhost:5173). The page reloads as you edit.
+
+## Build
+
+```sh
+npm run build
+```
+
+The finished site goes to `dist/`: `index.html` plus the images and videos from `public/`. Upload the whole `dist/` folder to any static host, or open `dist/index.html` by double-clicking.
+
+## Deploy (GitHub Pages)
+
+Every push to `main` builds and publishes the site via [.github/workflows/deploy.yml](.github/workflows/deploy.yml).
+
+One-time setup: in the repository go to **Settings → Pages** and set **Source** to **GitHub Actions**.
+
+## Editing content
+
+- **Projects** (cards, case windows, videos, stillframes, texts): `src/lib/site.ts`
+- **Interface text** in all three languages: `src/lib/i18n.ts`
+- **Images and videos**: `public/` (projects in `public/projects/`). Reference them in `site.ts` as `/projects/file.mp4`.
+
+Keep videos in H.264 MP4 and reasonably small (ideally under 20–30 MB each). GitHub rejects files over 100 MB.

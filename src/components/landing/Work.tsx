@@ -81,7 +81,7 @@ export function Work({ locale, onReference }: { locale: Locale; onReference: (sl
             className="no-scrollbar edge-fade -mx-4 flex gap-2 overflow-x-auto px-4 min-[900px]:mx-0 min-[900px]:px-0 min-[900px]:[mask-image:none]"
           >
             {(["all", ...CATEGORIES] as Filter[])
-              .filter((f) => counts[f] > 0)
+              .filter((f) => (counts[f] ?? 0) > 0)
               .map((f) => (
                 <button
                   key={f}
